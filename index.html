@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Staff Performance Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- LOGIN SECTION -->
+  <div id="loginSection" class="tab active">
+    <img src="Logo.png" alt="Villa Hakatha Logo" />
+    <h2>Staff Performance Login</h2>
+    <form id="loginForm">
+      <input type="text" name="username" placeholder="Username" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Sign In</button>
+      <div id="loginError"></div>
+    </form>
+  </div>
+
+  <!-- NAVIGATION -->
+  <div class="tabs hidden" id="mainTabs">
+    <div class="tab-group">
+      <button onclick="showTab('dashboard')">Dashboard</button>
+      <button onclick="showTab('tasks')">Tasks</button>
+      <button onclick="showTab('users')">Users</button>
+    </div>
+    <div class="tab-logout">
+      <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="tab hidden">
+    <h2>Dashboard</h2>
+    <div id="summary"></div>
+  </div>
+
+  <!-- TASKS TAB -->
+  <div id="tasks" class="tab hidden">
+    <div class="task-header">
+      <h2>Assigned Tasks</h2>
+      <button id="addTaskBtn">＋</button>
+    </div>
+    <table id="taskTable">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Task</th>
+          <th>Measure</th>
+          <th>Target</th>
+          <th>Assigned By</th>
+          <th>Assigned Time</th>
+          <th>Assigned To</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- USERS TAB -->
+  <div id="users" class="tab hidden">
+    <h2>Users</h2>
+    <p>User management coming soon...</p>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div id="editSidebar" class="sidebar hidden">
+    <div class="sidebar-header">
+      <h2 id="sidebarTitle">Edit Task</h2>
+      <button id="closeSidebarBtn">×</button>
+    </div>
+    <form id="editTaskForm">
+      <input type="text" name="task" placeholder="Task" required />
+      <input type="text" name="measure" placeholder="Measure" required />
+      <div class="form-row">
+        <input type="number" name="target" placeholder="Target" required />
+        <select name="unit" required>
+          <option value="min">min</option>
+          <option value="day(s)">day(s)</option>
+          <option value="unit">unit</option>
+        </select>
+      </div>
+      <input type="text" name="assignedTo" placeholder="Assigned To" required />
+      <select name="status">
+        <option value="Not Started">Not Started</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+      </select>
+      <button type="submit">Save Task</button>
+    </form>
+  </div>
+
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
